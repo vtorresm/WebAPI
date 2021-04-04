@@ -11,7 +11,7 @@ import { PaymentDetailService } from '../shared/payment-detail.service';
 export class PaymentDetailsComponent implements OnInit {
   constructor(
     public service: PaymentDetailService,
-    private toast: ToastrService
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class PaymentDetailsComponent implements OnInit {
       this.service.deletePaymentDetail(id).subscribe(
         (res) => {
           this.service.refreshList();
-          this.toast.error('Deleted successfully', 'Payment Detail Register');
+          this.toastr.error('Deleted successfully', 'Payment Detail Register');
         },
         (err) => {
           console.log(err);
